@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->decimal('price')->nullable();
+            $table->string('price')->nullable();
             $table->integer('type_id')->nullable();
             $table->string('location');
-            $table->integer('bedrooms')->nullable();
-            $table->integer('bathrooms')->nullable();
-            $table->integer('area_sqft')->nullable();
-            $table->decimal('lot_size_acres')->nullable();
+            $table->string('bedrooms')->nullable();
+            $table->string('bathrooms')->nullable();
+            $table->string('area_sqft')->nullable();
+            $table->string('lot_size_acres')->nullable();
             $table->integer('agent_id')->nullable();
             $table->string('property_status')->nullable();
             $table->tinyInteger('status')->default(0);

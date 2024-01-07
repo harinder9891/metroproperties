@@ -29,7 +29,14 @@ class AgentsController extends Controller
      */
     public function store(Request $request)
     {
-        $agent = User::create($request->all());
+        $data = $request->validate([
+            'role'=>'required',
+            'name'=>'required',
+            'email'=>'required|unique:users',
+            'phone'=>'required',
+            'password'=>'required'
+        ]);
+        $agent = User::create($data);
         return redirect()->route('agent.index');
     }
 
@@ -56,6 +63,7 @@ class AgentsController extends Controller
     public function update(Request $request, string $id)
     {
         $data = User::find($id);
+        $data->role= $request->role ;
         $data->name= $request->name ;
         $data->email= $request->email ;
         $data->phone= $request->phone ;
@@ -70,6 +78,9 @@ class AgentsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $agent = User::find($id)->delete();
+        return redirect()->route('agent.index');
+
+
     }
 }

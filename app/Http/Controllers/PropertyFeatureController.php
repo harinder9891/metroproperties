@@ -23,8 +23,15 @@ class PropertyFeatureController extends Controller
        $data= $request->validate([
             'name'=>'required'
         ]);
+        $image = $request->icon;
+        $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                
+                $image->move(public_path('property_images'), $imageName);
 
-        PropertyFeature::create($data);
+        PropertyFeature::create([
+            'name'=>$request->name,
+            'icon'=>$imageName
+        ]);
         return redirect()->route('property-feature.index');
 
     }
@@ -36,8 +43,17 @@ class PropertyFeatureController extends Controller
 
     public function Update($id,Request $request){
 
+        $image =$request->icon;
+        if ($request->icon !=null) {
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                
+            $image->move(public_path('property_images'), $imageName);
+
+        }
+
         $data= PropertyFeature::find($id);
         $data->name = $request->name ;
+        $data->icon = $imageName ?? $data->icon;
         $data->save();
         return redirect()->route('property-feature.index');
 

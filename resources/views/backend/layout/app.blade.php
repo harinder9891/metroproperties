@@ -13,14 +13,16 @@
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="{{asset('backend/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}"">
   <link rel="stylesheet" href="{{asset('backend/vendors/ti-icons/css/themify-icons.css')}}"">
-  <link rel="stylesheet" type="text/css" href="{{asset('backend/js/select.dataTables.min.css')}}"">
+  <link rel="stylesheet" type="text/css" href="{{asset('backend/js/select.dataTables.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('backend/css/price_range.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('backend/css/fs-gal.css')}}">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{asset('backend/css/vertical-layout-light/style.css')}}"">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{asset('backend/images/favicon.png')}}" />
   <script src="https:/code.jquery.com/jquery-3.6.0.min.js"></script>
-
+  <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 </head>
 <body>
 @include('backend.layout.header')
@@ -55,6 +57,7 @@
   <!-- Custom js for this page-->
   <script src="{{asset('backend/js/dashboard.js')}}"></script>
   <script src="{{asset('backend/js/Chart.roundedBarCharts.js')}}"></script>
+  <script src="{{asset('backend/js/fs-gal.js')}}"></script>
   <!-- End custom js for this page-->
 </body>
 </html>

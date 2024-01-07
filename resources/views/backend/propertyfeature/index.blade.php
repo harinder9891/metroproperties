@@ -1,7 +1,7 @@
 @extends('backend.layout.app')
 @section('content')
 <div class="row">
-    <div class="col-lg-6 grid-margin stretch-card">
+    <div class="col-lg-8 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Property Features</h4>
@@ -14,6 +14,7 @@
                   <tr>
                     <th>#</th>
                     <th>Title</th>
+                    <th>Icon</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -23,9 +24,7 @@
                     <tr> 
                       <td>{{$item->id}}</td>
                       <td>{{$item->name}}</td>
-                      {{-- <td><label class="badge badge-danger">Pending</label>
-                        <label class="badge badge-info">Edit</label>
-                    </td> --}}
+                      <td><img src="{{asset('property_images').'/'.$item->icon}}" width="70px" height="70px" alt=""></td>
                     <td>
                         <form method="POST" action="{{ url('property-feature/destroy', $item->id) }}">
                             @csrf

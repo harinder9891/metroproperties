@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('phone')->nullable();
+            $table->enum('role',['superadmin','admin','agent','user']);
             $table->tinyInteger('status')->default(0);
         });
     }

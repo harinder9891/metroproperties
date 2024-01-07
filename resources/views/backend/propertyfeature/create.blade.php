@@ -9,11 +9,16 @@
           <p class="card-description">
            Add Property Feature
           </p>
-          <form class="forms-sample" action="{{url('property-feature/store')}}" method="POST">
+          <form class="forms-sample" action="{{url('property-feature/store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
               <label for="exampleInputUsername1">Feature</label>
               <input type="text" class="form-control" id="exampleInputUsername1" name="name" placeholder="Property Feature">
+            </div>
+            <div class="form-group">
+              <label>icon upload</label>
+              <input type="file" name="icon" class="form-control file-upload-info" accept="image/*">
+              
             </div>
             <button type="submit" class="btn btn-primary mr-2">Submit</button>
             <button class="btn btn-light">Cancel</button>

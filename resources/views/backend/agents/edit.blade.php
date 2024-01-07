@@ -13,9 +13,24 @@
             @csrf
             @method('PUT')
             <div class="form-group">
+              <label for="agentname">Assign Role</label>
+              <select name="role" id="userrole" class="form-control">
+                  <option value="" selected>--Select Role--</option>
+                  <option value="superadmin" @if ($data->role =='superadmin')selected
+                      
+                  @endif>Super Admin</option>
+                  <option value="admin" @if ($data->role == 'admin')selected
+                      
+                  @endif>Admin</option>
+                  <option value="agent" @if ($data->role =='agent') selected
+                      
+                  @endif>Agent</option>
+              </select>
+          </div>
+            <div class="form-group">
                 <label for="agentname">Name</label>
                 <input type="text" class="form-control" id="agentname" name="name" value="{{$data->name}}" placeholder="Agent Name">
-              </div>
+            </div>
               <div class="form-group">
                   <label for="agentemail">Email</label>
                   <input type="text" class="form-control" id="agentemail" name="email" value="{{$data->email}}" placeholder="Agent Email Address" autocomplete="off">
